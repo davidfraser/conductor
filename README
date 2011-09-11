@@ -1,8 +1,9 @@
-TIME TIMER
+Conductor
 ----------
 
-This is a visual timer to time things.  I use it for my young children, as it gives them a visual representation of how time passes, and they can see how much time they have left for a task.
+This is a visual metronome that tries to act like a conductor's baton.
 
 pygame is the only dependency.
 
-Use is simple - just run the script with one argument, the number of minutes you wish to count down.  The size of the display always represents 60 minutes, as this then gives a child some consistency for how large a segment is how much time.
+Use is simple - just run the script with one argument, the number of beats per minute. You can optionally add 2/3/4 beats per bar as the second argument.
+
