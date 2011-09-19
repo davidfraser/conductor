@@ -41,6 +41,7 @@ current_beat = 0
 signature = {4: {0: (0.5, 0.7), 1: (0.2, 0.7), 2: (0.8, 0.7), 3: (0.5, 0.2)},
              3: {0: (0.2, 0.7), 1: (0.8, 0.7), 2: (0.5, 0.2)},
              2: {0: (0.5, 0.7), 1: (0.5, 0.2)},
+             5: {0: (0.4, 0.7), 1: (0.2, 0.7), 2: (0.6, 0.7), 3: (0.8, 0.7), 4: (0.4, 0.2)},
             }
 
 beat_positions = signature[beats]
@@ -54,14 +55,16 @@ while True:
     pygame.draw.circle(screen, white, (center_x, center_y), size)
     beat_text = font.render(str(current_beat + 1), True, navy)
     screen.blit(beat_text, (center_x - (beat_text.get_width()/2), center_y - (beat_text.get_height()/2)))
-    print current_beat + 1
     last_time = time.time()
     next_time = last_time + wait_time
-    pygame.display.flip()
+    update_area = (center_x-size, center_y-size, center_x+size, center_y+size)
+    print current_beat + 1
+    pygame.display.update(update_area)
     left_time = next_time - time.time()
     drop_time = left_time - wait_time/8
     pygame.time.wait(int(drop_time*1000))
     pygame.draw.circle(screen, black, (center_x, center_y), size)
+    pygame.display.update(update_area)
     current_beat = (current_beat + 1) % beats
     x, y = beat_positions[current_beat]
     next_x, next_y = int(width * x), int(height * y)
@@ -83,5 +86,5 @@ while True:
         last_x, last_y = move_x, move_y
         pygame.display.update(update_area)
     pygame.draw.circle(screen, black, (last_x, last_y), move_size)
-    pygame.display.flip()
+    pygame.display.update(update_area)
 
