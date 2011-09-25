@@ -1,0 +1,9 @@
+= TODO =
+
+Ideas for enhancements:
+
+* Controls for changing beats, bpm, pause, start, etc
+* Incorporate clock
+* Conduct along with music, with bpm detector
+* Synchronize onto multiple computers
+
